@@ -29,6 +29,4 @@ store.subscribe(() => {
   saveToLocalStorage(store.getState());
 });
 
-console.log(store.getState());
-
 export default store;
