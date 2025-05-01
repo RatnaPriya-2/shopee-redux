@@ -12,7 +12,7 @@ const Wishlist = () => {
     <div className="wishlist-container">
       <h2>Your Wishlist ❤️</h2>
       {wishlistItems.length === 0 ? (
-        <p>Your wishlist is empty.</p>
+        <p style={{ padding: "0 2rem" }}>Your wishlist is empty.</p>
       ) : (
         <div className="wishlist-grid">
           {wishlistItems.map((item) => (

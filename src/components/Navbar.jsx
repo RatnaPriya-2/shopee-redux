@@ -10,6 +10,7 @@ import { changeMode } from "../store/ModeReducer";
 
 const Navbar = () => {
   const cartItems = useSelector((state) => state.cart);
+  const wishlistItems = useSelector((state) => state.wishlist);
   const modeBoolean = useSelector((state) => state.mode);
   console.log(modeBoolean);
 
@@ -31,9 +32,12 @@ const Navbar = () => {
             <IoSunny onClick={() => dispatch(changeMode(!modeBoolean))} />
           )}
         </div>
-        <Link to="/wishlist">
-          <FaHeart className="icon" />
-        </Link>
+        <div className="wishlist-icon">
+          <Link to="/wishlist">
+            <FaHeart className="icon" />
+          </Link>
+          <span className="wishlist-count">{wishlistItems.length}</span>
+        </div>
 
         <div className="cart-icon">
           <Link to="/cart">

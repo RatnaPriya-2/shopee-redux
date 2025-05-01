@@ -1,3 +1,5 @@
+import { toast } from "react-toastify";
+
 const ADD_TO_CART = "cart/addItem";
 const REMOVE_FROM_CART = "cart/removeItem";
 const INCREASE_QUANTITY = "cart/increaseQuantity";
@@ -20,15 +22,18 @@ const CartReducer = (state = [], action) => {
   if (action.type === ADD_TO_CART) {
     let findItem = state.find((item) => item.id === action.payload.id);
     if (findItem) {
+      toast.success("Item already in cart, quantity increased by 1");
       return state.map((item) =>
         item.id === findItem.id
           ? { ...item, quantity: item.quantity + 1 }
           : item
       );
     }
+    toast.success("Item added to cart");
     return [...state, { ...action.payload, quantity: 1 }];
   }
   if (action.type === REMOVE_FROM_CART) {
+    toast.success("Item removed from cart");
     return state.filter((item) => item.id !== action.payload);
   }
   if (action.type === INCREASE_QUANTITY) {
