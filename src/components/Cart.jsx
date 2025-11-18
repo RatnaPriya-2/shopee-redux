@@ -8,12 +8,9 @@ import CartItem from "./CartItem";
 const Cart = () => {
   const cartItems = useSelector((state) => state.cart);
 
-  const cartTotal = cartItems.reduce(
-    (acc, item) => acc + item.price * item.quantity,
-    0
-  ).toFixed(2)
-
-  console.log(cartItems.length);
+  const cartTotal = cartItems
+    .reduce((acc, item) => acc + item.price * item.quantity, 0)
+    .toFixed(2);
 
   return (
     <div className="cart-container">

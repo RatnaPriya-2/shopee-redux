@@ -4,6 +4,8 @@ import { addToWishList } from "../store/WishlistReducer";
 import { addItemToCart } from "../store/CartReducer";
 
 const ProductCard = ({ product }) => {
+  console.log(product.image);
+
   const dispatch = useDispatch();
   return (
     <div className="product-card">
@@ -15,7 +17,12 @@ const ProductCard = ({ product }) => {
           <p>Rating:{product.rating.rate}</p>
         </div>
         <div className="buttons">
-          <button className="add-cart-btn" onClick = {()=>dispatch(addItemToCart(product))}>Add to cart</button>
+          <button
+            className="add-cart-btn"
+            onClick={() => dispatch(addItemToCart(product))}
+          >
+            Add to cart
+          </button>
           <button
             className="add-wishlist-btn"
             onClick={() => dispatch(addToWishList(product))}
